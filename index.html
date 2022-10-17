@@ -21,18 +21,38 @@
 <body>
     <div class="container">
         <div class="row justify-content-center" style="margin-top: 10px;">
-            <div class="card col-10" style="padding: 10px;">
-                <div class="col4">
+            <div class="card col-10" style="padding: 10px; display: inline-block;">
+                <div style="display: inline-block;">
                     <label for="">Data Inicio</label><br>
-                    <input type="date" name="" id="">
+                    <input type="date" name="" id="data_inic">
                 </div>
-                <div class="col4">
+                <div style="display: inline-block;">
                     <label for="">Data Final</label><br>
-                    <input type="date" name="" id="">
+                    <input type="date" name="" id="data_fin">
+                </div>
+                <div style="display: inline-block;">
+                    <label for="">Nome da publicação</label><br>
+                    <input type="text" placeholder="Ano Novo" id="nome">
+                </div>
+                <div class="col2" style="position: absolute; right: 80px; bottom: 5px;">
+                    <button class="btn btn-danger" onclick="parent.ebfFlowExecute('Publicacao - Remover pub')">Excluir</button>
+                </div>
+                <div class="col2" style="position: absolute; right: 10px; bottom: 5px;">
+                    <button class="btn btn-success" onclick="salvarAlteracao()">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        function salvarAlteracao(){
+            let nome = document.getElementById('nome').value;
+            let data_inic = document.getElementById('data_inic').value
+            let data_final = document.getElementById('data_fin').value
+
+            parent.ebfFlowExecute('Publicacao - adicionar nova pub', parent.ebfListParamsCreate(nome, data_inic, data_final))
+        }
+    </script>
 
     <!-- Jquery Core Js -->
     <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery/jquery.min.js"></script>
