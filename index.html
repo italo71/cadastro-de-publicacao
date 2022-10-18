@@ -52,6 +52,12 @@
 
             parent.ebfFlowExecute('Publicacao - adicionar nova pub', parent.ebfListParamsCreate(nome, data_inic, data_final))
         }
+
+        function alterarValor(nome, data_inic, data_fin){
+            document.getElementById('nome').value = nome;
+            document.getElementById('data_inic').value = data_inic
+            document.getElementById('data_fin').value = data_fin
+        }
     </script>
 
     <!-- Jquery Core Js -->
